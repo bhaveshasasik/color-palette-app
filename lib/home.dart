@@ -25,10 +25,10 @@ class HomePage extends StatefulWidget {
   _HomePageState createState() => _HomePageState();
 }
 
-//home
 class _HomePageState extends State<HomePage> {
   List<Color> hexColors = [];
   File? image;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -40,110 +40,76 @@ class _HomePageState extends State<HomePage> {
           children: [
             MaterialButton(
               color: Colors.blue,
-              child: const Text("Pick Image from Gallery",
-                  style: TextStyle(
-                      color: Colors.white70, fontWeight: FontWeight.bold)),
-              onPressed: () async {
-                try {
-                  final image = await ImagePicker()
-                      .pickImage(source: ImageSource.gallery);
-                  if (image == null) return;
-                  final imageTemp = File(image.path);
-                  //add http request
-                  var request = http.MultipartRequest(
-                    'POST',
-                    Uri.parse(
-                        'https://fd0e-168-150-39-67.ngrok-free.app/upload'),
-                  );
-
-                  request.files.add(
-                    await http.MultipartFile.fromPath('image', imageTemp.path),
-                  );
-                  var response = await request.send();
-                  if (response.statusCode == 200) {
-                    //print(await response.stream.bytesToString());
-                    String colors = await response.stream.bytesToString();
-                    Map<String, dynamic> colorMap = json.decode(colors);
-                    List<dynamic> colorList = colorMap['colors'];
-                    //print(colorList);
-
-                    //prints hexcolors
-                    List<Color> hexColors = colorList.map<Color>((color) {
-                      String hexString = color;
-                      hexString = hexString.replaceAll(
-                          "#", ""); // Remove the '#' symbol if present
-                      return Color(int.parse(hexString, radix: 16))
-                          .withOpacity(1.0);
-                    }).toList();
-                    print(hexColors);
-
-                    _navigateToColorDisplayPage(hexColors);
-                  } else {
-                    // Handle the error
-                    print(
-                        'HTTP request failed with status: ${response.statusCode}');
-                  }
-                  setState(() => this.image = imageTemp);
-                } on PlatformException catch (e) {
-                  print('Failed to pick image: $e');
-                }
-              },
+              child: const Text(
+                "Pick Image from Gallery",
+                style: TextStyle(
+                    color: Colors.white70, fontWeight: FontWeight.bold),
+              ),
+              onPressed: _pickImageFromGallery,
             ),
             MaterialButton(
               color: Colors.blue,
-              child: const Text("Pick Image from Camera",
-                  style: TextStyle(
-                      color: Colors.white70, fontWeight: FontWeight.bold)),
-              onPressed: () async {
-                try {
-                  final image =
-                      await ImagePicker().pickImage(source: ImageSource.camera);
-                  if (image == null) return;
-                  final imageTemp = File(image.path);
-                  //add http request
-                  var request = http.MultipartRequest(
-                    'POST',
-                    Uri.parse(
-                        'https://fd0e-168-150-39-67.ngrok-free.app/upload'),
-                  );
-                  request.files.add(
-                    await http.MultipartFile.fromPath('image', imageTemp.path),
-                  );
-                  var response = await request.send();
-                  if (response.statusCode == 200) {
-                    //print(await response.stream.bytesToString());
-                    String colors = await response.stream.bytesToString();
-                    Map<String, dynamic> colorMap = json.decode(colors);
-                    List<dynamic> colorList = colorMap['colors'];
-                    //print(colorList);
-
-                    //prints hexcolors
-                    List<Color> hexColors = colorList.map<Color>((color) {
-                      String hexString = color;
-                      hexString = hexString.replaceAll(
-                          "#", ""); // Remove the '#' symbol if present
-                      return Color(int.parse(hexString, radix: 16))
-                          .withOpacity(1.0);
-                    }).toList();
-
-                    print(hexColors);
-
-                    _navigateToColorDisplayPage(hexColors);
-                  } else {
-                    // Handle the error
-                    print(
-                        'HTTP request failed with status: ${response.statusCode}');
-                  }
-                  setState(() => this.image = imageTemp);
-                } on PlatformException catch (e) {
-                  print('Failed to pick image: $e');
-                }
-              },
+              child: const Text(
+                "Pick Image from Camera",
+                style: TextStyle(
+                    color: Colors.white70, fontWeight: FontWeight.bold),
+              ),
+              onPressed: _pickImageFromCamera,
             ),
           ],
         ),
       ),
     );
+  }
+
+  void _pickImageFromGallery() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.gallery);
+      if (image == null) return;
+      final imageTemp = File(image.path);
+      await _processImage(imageTemp);
+    } on PlatformException catch (e) {
+      print('Failed to pick image: $e');
+    }
+  }
+
+  void _pickImageFromCamera() async {
+    try {
+      final image = await ImagePicker().pickImage(source: ImageSource.camera);
+      if (image == null) return;
+      final imageTemp = File(image.path);
+      await _processImage(imageTemp);
+    } on PlatformException catch (e) {
+      print('Failed to pick image: $e');
+    }
+  }
+
+  Future<void> _processImage(File imageTemp) async {
+    var request = http.MultipartRequest(
+      'POST',
+      Uri.parse('https://fd0e-168-150-39-67.ngrok-free.app/upload'),
+    );
+    request.files.add(
+      await http.MultipartFile.fromPath('image', imageTemp.path),
+    );
+    var response = await request.send();
+    if (response.statusCode == 200) {
+      String colors = await response.stream.bytesToString();
+      Map<String, dynamic> colorMap = json.decode(colors);
+      List<dynamic> colorList = colorMap['colors'];
+
+      List<Color> hexColors = colorList.map<Color>((color) {
+        String hexString = color;
+        hexString = hexString.replaceAll("#", "");
+        return Color(int.parse(hexString, radix: 16)).withOpacity(1.0);
+      }).toList();
+
+      print(hexColors);
+      _navigateToColorDisplayPage(hexColors);
+    } else {
+      print('HTTP request failed with status: ${response.statusCode}');
+    }
+    setState(() => this.image = imageTemp);
   }
 
   void _navigateToColorDisplayPage(List<Color> colors) {
