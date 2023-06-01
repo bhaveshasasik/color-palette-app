@@ -10,28 +10,29 @@ import 'package:flutter/material.dart';
 //palette
 class ColorDisplayPage extends StatelessWidget {
   final List<Color> colors;
-
   ColorDisplayPage({required this.colors});
-
   @override
   Widget build(BuildContext context) {
+    double screenWidth = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Color Palette'),
+        title: Text('Color Pallette'),
       ),
-      body: Container(
-        alignment: Alignment.center,
-        child: Align(
-          child: GridView.count(
-            crossAxisCount: 5, // Number of columns in the grid
-            //padding: EdgeInsets.all(20.0),
-            padding: EdgeInsets.fromLTRB(0, 100, 0, 0),
-            children: List.generate(colors.length, (index) {
-              return Container(
-                color: colors[index],
-              );
-            }),
-          ),
+      body: Center(
+        child: Column(
+          children: [
+            Image.network("https://media.wired.com/photos/598e35994ab8482c0d6946e0/master/w_2560%2Cc_limit/phonepicutres-TA.jpg"),
+            Expanded(
+              child: GridView.count(
+                crossAxisCount: 5, // Number of columns in the grid
+                children: List.generate(colors.length, (index) {
+                  return Container(
+                    color: colors[index],
+                  );
+                }),
+              ),
+            ),
+          ],
         ),
       ),
     );
