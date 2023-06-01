@@ -33,13 +33,24 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Image Picker Example"),
+        title: const Text(
+          "Color Palette Pro",
+        ),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.cyan.shade800, Colors.purple.shade800],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+        ),
       ),
       body: Center(
         child: Column(
           children: [
             MaterialButton(
-              color: Colors.blue,
+              color: Colors.cyan.shade800,
               child: const Text(
                 "Pick Image from Gallery",
                 style: TextStyle(
@@ -48,7 +59,7 @@ class _HomePageState extends State<HomePage> {
               onPressed: _pickImageFromGallery,
             ),
             MaterialButton(
-              color: Colors.blue,
+              color: Colors.cyan.shade800,
               child: const Text(
                 "Pick Image from Camera",
                 style: TextStyle(
@@ -105,18 +116,18 @@ class _HomePageState extends State<HomePage> {
       }).toList();
 
       print(hexColors);
-      _navigateToColorDisplayPage(hexColors);
+      _navigateToColorDisplayPage(hexColors, imageTemp);
     } else {
       print('HTTP request failed with status: ${response.statusCode}');
     }
     setState(() => this.image = imageTemp);
   }
 
-  void _navigateToColorDisplayPage(List<Color> colors) {
+  void _navigateToColorDisplayPage(List<Color> colors, final image) {
     Navigator.push(
       context,
       MaterialPageRoute(
-        builder: (context) => ColorDisplayPage(colors: colors),
+        builder: (context) => ColorDisplayPage(colors: colors, image: image),
       ),
     );
   }

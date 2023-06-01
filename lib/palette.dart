@@ -10,30 +10,46 @@ import 'package:flutter/material.dart';
 //palette
 class ColorDisplayPage extends StatelessWidget {
   final List<Color> colors;
-  ColorDisplayPage({required this.colors});
+  final image;
+  ColorDisplayPage({required this.colors, required this.image});
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
+    double screenHeight = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
-        title: Text('Color Pallette'),
+        title: const Text('Color Palette'),
+        flexibleSpace: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              colors: [Colors.cyan.shade800, Colors.purple.shade800],
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+            ),
+          ),
+        ),
       ),
-      body: Center(
-        child: Column(
-          children: [
-            Image.network("https://media.wired.com/photos/598e35994ab8482c0d6946e0/master/w_2560%2Cc_limit/phonepicutres-TA.jpg"),
-            Expanded(
-              child: GridView.count(
-                crossAxisCount: 5, // Number of columns in the grid
-                children: List.generate(colors.length, (index) {
-                  return Container(
-                    color: colors[index],
-                  );
-                }),
+      body: Column(
+        children: [
+          Expanded(
+            child: Container(
+              width: screenWidth,
+              child: Image.file(
+                image,
+                fit: BoxFit.contain,
               ),
             ),
-          ],
-        ),
+          ),
+          GridView.count(
+            shrinkWrap: true,
+            crossAxisCount: 3,
+            children: List.generate(colors.length, (index) {
+              return Container(
+                color: colors[index],
+              );
+            }),
+          ),
+        ],
       ),
     );
   }
