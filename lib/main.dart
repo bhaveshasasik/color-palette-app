@@ -6,13 +6,15 @@ import 'dart:io';
 import 'package:flutter/services.dart';
 import 'package:http/http.dart' as http;
 import 'package:camera_gallery_demo/splash.dart';
-import 'dart:convert';
+//import 'dart:convert';
 
+//main
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   runApp(MyApp());
 }
 
+//app
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -30,6 +32,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  List<Color> hexColors = [];
   File? image;
   @override
   Widget build(BuildContext context) {
@@ -68,6 +71,18 @@ class _HomePageState extends State<HomePage> {
                     Map<String, dynamic> colorMap = json.decode(colors);
                     List<dynamic> colorList = colorMap['colors'];
                     //print(colorList);
+
+                    //prints hexcolors
+                    List<Color> hexColors = colorList.map<Color>((color) {
+                      String hexString = color;
+                      hexString = hexString.replaceAll(
+                          "#", ""); // Remove the '#' symbol if present
+                      return Color(int.parse(hexString, radix: 16))
+                          .withOpacity(1.0);
+                    }).toList();
+                    print(hexColors);
+
+                    _navigateToColorDisplayPage(hexColors);
                   } else {
                     // Handle the error
                     print(
@@ -106,12 +121,24 @@ class _HomePageState extends State<HomePage> {
                     Map<String, dynamic> colorMap = json.decode(colors);
                     List<dynamic> colorList = colorMap['colors'];
                     //print(colorList);
+
+                    //prints hexcolors
+                    List<Color> hexColors = colorList.map<Color>((color) {
+                      String hexString = color;
+                      hexString = hexString.replaceAll(
+                          "#", ""); // Remove the '#' symbol if present
+                      return Color(int.parse(hexString, radix: 16))
+                          .withOpacity(1.0);
+                    }).toList();
+
+                    print(hexColors);
+
+                    _navigateToColorDisplayPage(hexColors);
                   } else {
                     // Handle the error
                     print(
                         'HTTP request failed with status: ${response.statusCode}');
                   }
-
                   setState(() => this.image = imageTemp);
                 } on PlatformException catch (e) {
                   print('Failed to pick image: $e');
@@ -119,6 +146,40 @@ class _HomePageState extends State<HomePage> {
               },
             ),
           ],
+        ),
+      ),
+    );
+  }
+
+  void _navigateToColorDisplayPage(List<Color> colors) {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ColorDisplayPage(colors: colors),
+      ),
+    );
+  }
+}
+
+class ColorDisplayPage extends StatelessWidget {
+  final List<Color> colors;
+
+  ColorDisplayPage({required this.colors});
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Color Pallette'),
+      ),
+      body: Center(
+        child: GridView.count(
+          crossAxisCount: 3, // Number of columns in the grid
+          children: List.generate(colors.length, (index) {
+            return Container(
+              color: colors[index],
+            );
+          }),
         ),
       ),
     );
