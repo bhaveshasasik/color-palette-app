@@ -1,6 +1,6 @@
 import "package:flutter/material.dart";
 import "package:flutter/services.dart";
-import "package:camera_gallery_demo/main.dart";
+import "package:camera_gallery_demo/home.dart";
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
