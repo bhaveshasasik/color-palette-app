@@ -11,7 +11,7 @@ import 'package:camera_gallery_demo/palette.dart';
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return const MaterialApp(
         debugShowCheckedModeBanner: false,
         //home: HomePage(),
         //adding splash screen
@@ -48,24 +48,34 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Center(
         child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            MaterialButton(
-              color: Colors.cyan.shade800,
-              child: const Text(
-                "Pick Image from Gallery",
-                style: TextStyle(
-                    color: Colors.white70, fontWeight: FontWeight.bold),
+            SizedBox(
+              height: 100,
+              width: 300,
+              child: MaterialButton(
+                color: Colors.cyan.shade800,
+                onPressed: _pickImageFromGallery,
+                child: const Text(
+                  "Pick Image from Gallery",
+                  style: TextStyle(
+                      color: Colors.white70, fontWeight: FontWeight.bold),
+                ),
               ),
-              onPressed: _pickImageFromGallery,
             ),
-            MaterialButton(
-              color: Colors.cyan.shade800,
-              child: const Text(
-                "Pick Image from Camera",
-                style: TextStyle(
-                    color: Colors.white70, fontWeight: FontWeight.bold),
+            const SizedBox(height: 10),
+            SizedBox(
+              height: 100,
+              width: 300,
+              child: MaterialButton(
+                color: Colors.cyan.shade800,
+                onPressed: _pickImageFromCamera,
+                child: const Text(
+                  "Pick Image from Camera",
+                  style: TextStyle(
+                      color: Colors.white70, fontWeight: FontWeight.bold),
+                ),
               ),
-              onPressed: _pickImageFromCamera,
             ),
           ],
         ),
@@ -103,6 +113,7 @@ class _HomePageState extends State<HomePage> {
     request.files.add(
       await http.MultipartFile.fromPath('image', imageTemp.path),
     );
+    _navigateToLoadingScreen();
     var response = await request.send();
     if (response.statusCode == 200) {
       String colors = await response.stream.bytesToString();
@@ -114,7 +125,6 @@ class _HomePageState extends State<HomePage> {
         hexString = hexString.replaceAll("#", "");
         return Color(int.parse(hexString, radix: 16)).withOpacity(1.0);
       }).toList();
-
       print(hexColors);
       _navigateToColorDisplayPage(hexColors, imageTemp);
     } else {
@@ -128,6 +138,23 @@ class _HomePageState extends State<HomePage> {
       context,
       MaterialPageRoute(
         builder: (context) => ColorDisplayPage(colors: colors, image: image),
+      ),
+    );
+  }
+  void _navigateToLoadingScreen() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => LoadingScreen()),
+    );
+  }
+}
+
+class LoadingScreen extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return const Scaffold(
+      body: Center(
+        child: CircularProgressIndicator(),
       ),
     );
   }
