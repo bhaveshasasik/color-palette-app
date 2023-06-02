@@ -27,9 +27,11 @@ We are also in the process of figuring out how to publish this app to Google Pla
 
 ## Collaborators
 
-[![](https://github.com/bhaveshasasik.png?size=5)](https://github.com/bhaveshasasik)
-[![](https://github.com/minjiyun02.png?size=5)](https://github.com/minjiyun02)
-[![](https://github.com/suyashgoel.png?size=5)](https://github.com/suyashgoel)
+<a href="https://github.com/bhaveshasasik/color-palette-app">
+  <img src="https://avatars.githubusercontent.com/u/113221407?s=50&v=4">
+  <img src="https://avatars.githubusercontent.com/u/134177477?v=4">
+  <img src="https://avatars.githubusercontent.com/u/70782125?s=50&v=4">
+</a>
 
 ## References and Resources
 
