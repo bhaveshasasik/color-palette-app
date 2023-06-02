@@ -32,6 +32,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey.shade700,
       appBar: AppBar(
         title: const Text(
           "Color Palette Pro",
@@ -46,36 +47,54 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: Center(
+      body: Align(
+        alignment: Alignment.bottomCenter,
         child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
+          mainAxisSize: MainAxisSize.min,
           children: [
-            SizedBox(
-              height: 100,
-              width: 300,
-              child: MaterialButton(
-                color: Colors.cyan.shade800,
-                onPressed: _pickImageFromGallery,
-                child: const Text(
-                  "Pick Image from Gallery",
-                  style: TextStyle(
-                      color: Colors.white70, fontWeight: FontWeight.bold),
+            Row(
+              crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SizedBox(
+                  height: 75,
+                  width: 175,
+                  child: MaterialButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    color: Colors.cyan.shade800,
+                    onPressed: _pickImageFromGallery,
+                    child: const Text(
+                      "Pick Image from Gallery",
+                      style: TextStyle(
+                          color: Colors.white70, fontWeight: FontWeight.bold),
+
+                    ),
+                  ),
                 ),
-              ),
+                const SizedBox(width: 25),
+                SizedBox(
+                  height: 75,
+                  width: 175,
+                  child: MaterialButton(
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(5),
+                    ),
+                    color: Colors.cyan.shade800,
+                    onPressed: _pickImageFromCamera,
+                    child: const Text(
+                      "Pick Image from Camera",
+                      style: TextStyle(
+                          color: Colors.white70, fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                ),
+              ],
             ),
-            const SizedBox(height: 10),
-            SizedBox(
-              height: 100,
-              width: 300,
-              child: MaterialButton(
-                color: Colors.cyan.shade800,
-                onPressed: _pickImageFromCamera,
-                child: const Text(
-                  "Pick Image from Camera",
-                  style: TextStyle(
-                      color: Colors.white70, fontWeight: FontWeight.bold),
-                ),
-              ),
+            const SizedBox(
+              width: double.infinity,
+              height: 25,
             ),
           ],
         ),

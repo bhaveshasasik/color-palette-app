@@ -1,11 +1,4 @@
-//import 'dart:convert';
 import 'package:flutter/material.dart';
-//import 'package:image_picker/image_picker.dart';
-//import 'dart:io';
-//import 'package:flutter/services.dart';
-//import 'package:http/http.dart' as http;
-//import 'package:camera_gallery_demo/splash.dart';
-//import 'dart:convert';
 
 //palette
 class ColorDisplayPage extends StatelessWidget {
@@ -49,8 +42,11 @@ class ColorDisplayPage extends StatelessWidget {
             shrinkWrap: true,
             crossAxisCount: 3,
             children: List.generate(colors.length, (index) {
-              return Container(
-                color: colors[index],
+              return Tooltip(
+                message: '#${colors[index].value.toRadixString(16).substring(2)}',
+                child: Container(
+                  color: colors[index],
+                ),
               );
             }),
           ),
