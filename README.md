@@ -1,4 +1,4 @@
-# Color Palette Generator
+# Color Palette Genarator - Color Flix
 
 This is an AI/ML based mobile app that creates color palettes from user selected images. 
 The users can either take pictures by using the camera or pick images from their gallery to get the palette. The purpose of the app is to provide artists and designers with a source of inspiration and a tool for color exploration. With the generated color palette, they can incorporate the chosen colors into their creative projects, whether it be painting, digital design, or any other kinds of art.
@@ -6,6 +6,11 @@ The users can either take pictures by using the camera or pick images from their
 ## How it works
 
 When the image input is received, the app sends it to the local server where the model anaylzes it. The model uses K-Means clustering to take the average of the color values from the input, and returns 5 peak values in json array. The app then takes the array, parses it into strings, and generates an organized palette with it.
+
+## Used technologies
+* [Flutter](https://docs.flutter.dev/get-started/install)
+* [Android Studio](https://developer.android.com/studio?gclid=CjwKCAjwpuajBhBpEiwA_ZtfhRa9zl1MVDHjEyTg-DABD-GxMUNWyV233UKy0wMx0qFAQtAWaKN3CxoCW0gQAvD_BwE&gclsrc=aw.ds)
+* [Android file Transfer](https://www.android.com/filetransfer/)
 
 ## Our Model
 - [Color Palette Model](https://github.com/suyashgoel/color-palette-model)
@@ -34,6 +39,6 @@ We are also in the process of figuring out how to publish this app to Google Pla
   * [How to Create a Stunning Splash Screen in Flutter](https://youtu.be/baa0SlEDimk)
   * [How to Create a Splash Screen in Flutter App? | GeeksforGeeks](https://youtu.be/XXISgdYHdYw)
 * Other screens
-  *
+  * 
 * Using image picker 
   * 
