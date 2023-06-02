@@ -25,11 +25,11 @@ We are also in the process of figuring out how to publish this app to Google Pla
 2. Connect your android device to your computer and select it as the platform to run the app on.
 3. Run the app and it should install and open when the download ends.
 
-## Colaborators
+## Collaborators
 
-<a href="https://github.com/bhaveshasasik/color-palette-app/graphs/contributors">
-  <img src="https://contrib.rocks/image?repo=bhaveshasasik/color-palette-app" />
-</a>
+[![](https://github.com/bhaveshasasik.png?size=5)](https://github.com/bhaveshasasik)
+[![](https://github.com/minjiyun02.png?size=5)](https://github.com/minjiyun02)
+[![](https://github.com/suyashgoel.png?size=5)](https://github.com/suyashgoel)
 
 ## References and Resources
 
