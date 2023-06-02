@@ -10,14 +10,19 @@ import 'package:flutter/material.dart';
 //palette
 class ColorDisplayPage extends StatelessWidget {
   final List<Color> colors;
-  final image;
+  dynamic image;
   ColorDisplayPage({required this.colors, required this.image});
   @override
   Widget build(BuildContext context) {
     double screenWidth = MediaQuery.of(context).size.width;
-    double screenHeight = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
+        leading: BackButton(
+          onPressed: () {
+            Navigator.of(context).pop();
+            Navigator.of(context).pop();
+          },
+        ),
         title: const Text('Color Palette'),
         flexibleSpace: Container(
           decoration: BoxDecoration(

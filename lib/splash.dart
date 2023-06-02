@@ -44,7 +44,7 @@ class _SplashScreenState extends State<SplashScreen>
             end: Alignment.bottomLeft,
           ),
         ),
-        child: Column(
+        child: const Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(
@@ -54,7 +54,7 @@ class _SplashScreenState extends State<SplashScreen>
             ),
             SizedBox(height: 20),
             Text(
-              'Color Palette Generator',
+              'Color Palette Pro',
               style: TextStyle(
                 fontStyle: FontStyle.normal,
                 color: Colors.white,
