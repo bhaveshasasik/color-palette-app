@@ -26,10 +26,16 @@ We are also in the process of figuring out how to publish this app to Google Pla
 3. Run the app and it should install and open when the download ends.
 
 ## Collaborators
-<a href="https://github.com/bhaveshasasik"> <img src="https://avatars.githubusercontent.com/u/113221407?v=4" width="100" /> </a> <a href="https://github.com/suyashgoel"> <img src="https://avatars.githubusercontent.com/u/70782125?v=4" width="100" /> </a> <a href="https://github.com/minjiyun02">
- <img src="https://avatars.githubusercontent.com/u/134177477?v=4" width="100" /> </a>
+* Suyash Goel - https://github.com/suyashgoel
+* Bhavesha Sasikumar - https://github.com/bhaveshasasik
+* Minji Yun - https://github.com/minjiyun02
 
 ## References and Resources
+
+[Flutter documentation](https://docs.flutter.dev/)
+[Flutter Tutorial For Beginners in 3 Hours](https://youtu.be/CD1Y2DmL5JM)
+[Flutter Tutorial — Image Picker From Camera & Gallery](https://medium.com/unitechie/flutter-tutorial-image-picker-from-camera-gallery-c27af5490b74)
+
 
 * App icon
   * [Flutter Tutorial - Change App Icon & Name Without Needing any Packages | SUPER EASY](https://www.youtube.com/watch?v=xbbCrFvF7G8)
