@@ -27,9 +27,7 @@ We are also in the process of figuring out how to publish this app to Google Pla
 
 ## Collaborators
 
-[![](https://github.com/bhaveshasasik.png?size=50)](https://github.com/bhaveshasasik)
-[![](https://github.com/suyashgoel.png?size=50)](https://github.com/suyashgoel)
-[![](https://github.com/minjiyun02.png?)](https://github.com/minjiyun02)
+<img src="https://avatars.githubusercontent.com/u/113221407?v=4" width="100" /> <img src="https://avatars.githubusercontent.com/u/70782125?v=4" width="100" /> <img src="https://avatars.githubusercontent.com/u/134177477?v=4" width="100" />
 
 ## References and Resources
 
