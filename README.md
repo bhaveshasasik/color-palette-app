@@ -17,9 +17,6 @@ When the image input is received, the app sends it to the local server where the
 
 ## Installation/Prerequisites
 
-The app currently **only supports androids**. We are planning to work on ios version as well in the future.
-We are also in the process of figuring out how to publish this app to Google Play Store.
-
 1. Download our zip file and open it on Android Studio after unzipping it.
     - click **pub get** to update all the dependencies
 2. Connect your android device to your computer and select it as the platform to run the app on.
