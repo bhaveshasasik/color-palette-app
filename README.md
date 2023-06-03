@@ -33,13 +33,8 @@ When the image input is received, the app sends it to the local server where the
 * [Flutter Tutorial For Beginners in 3 Hours](https://youtu.be/CD1Y2DmL5JM)
 * [Flutter Tutorial — Image Picker From Camera & Gallery](https://medium.com/unitechie/flutter-tutorial-image-picker-from-camera-gallery-c27af5490b74)
 
-
 * App icon
   * [Flutter Tutorial - Change App Icon & Name Without Needing any Packages | SUPER EASY](https://www.youtube.com/watch?v=xbbCrFvF7G8)
 * Splash screen
   * [How to Create a Stunning Splash Screen in Flutter](https://youtu.be/baa0SlEDimk)
   * [How to Create a Splash Screen in Flutter App? | GeeksforGeeks](https://youtu.be/XXISgdYHdYw)
-* Other screens
-  * 
-* Using image picker 
-  * 
