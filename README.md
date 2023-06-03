@@ -26,8 +26,8 @@ We are also in the process of figuring out how to publish this app to Google Pla
 3. Run the app and it should install and open when the download ends.
 
 ## Collaborators
-
-<img src="https://avatars.githubusercontent.com/u/113221407?v=4" width="100" /> <img src="https://avatars.githubusercontent.com/u/70782125?v=4" width="100" /> <img src="https://avatars.githubusercontent.com/u/134177477?v=4" width="100" />
+<a href="https://github.com/bhaveshasasik"> <img src="https://avatars.githubusercontent.com/u/113221407?v=4" width="100" /> </a> <a href="https://github.com/minjiyun02"> <img src="https://avatars.githubusercontent.com/u/70782125?v=4" width="100" /> </a> <a href="https://github.com/suyashgoel">
+ <img src="https://avatars.githubusercontent.com/u/134177477?v=4" width="100" /> </a>
 
 ## References and Resources
 
