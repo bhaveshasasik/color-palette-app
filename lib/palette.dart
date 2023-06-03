@@ -16,7 +16,13 @@ class ColorDisplayPage extends StatelessWidget {
             Navigator.of(context).pop();
           },
         ),
-        title: const Text('Color Palette'),
+        title: const Text(
+          'Color Palette',
+          style: TextStyle(
+            fontStyle: FontStyle.italic,
+            fontSize: 20,
+          ),
+        ),
         flexibleSpace: Container(
           decoration: BoxDecoration(
             gradient: LinearGradient(
@@ -43,7 +49,8 @@ class ColorDisplayPage extends StatelessWidget {
             crossAxisCount: 3,
             children: List.generate(colors.length, (index) {
               return Tooltip(
-                message: '#${colors[index].value.toRadixString(16).substring(2)}',
+                message:
+                    '#${colors[index].value.toRadixString(16).substring(2)}',
                 child: Container(
                   color: colors[index],
                 ),

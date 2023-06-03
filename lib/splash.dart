@@ -44,17 +44,15 @@ class _SplashScreenState extends State<SplashScreen>
             end: Alignment.bottomLeft,
           ),
         ),
-        child: const Column(
+        child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Icon(
-              Icons.palette_outlined,
-              size: 210,
-              color: Colors.white,
+            Image.asset(
+              'images/ColorFlix0.png',
             ),
-            SizedBox(height: 20),
-            Text(
-              'Color Palette Pro',
+            const SizedBox(height: 20),
+            const Text(
+              'ColorFlix',
               style: TextStyle(
                 fontStyle: FontStyle.normal,
                 color: Colors.white,
