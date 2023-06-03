@@ -3,6 +3,8 @@
 This is an AI/ML based mobile app that creates color palettes from user selected images. 
 The users can either take pictures by using the camera or pick images from their gallery to get the palette. The purpose of the app is to provide artists and designers with a source of inspiration and a tool for color exploration. With the generated color palette, they can incorporate the chosen colors into their creative projects, whether it be painting, digital design, or any other kinds of art.
 
+**This app supports both android and ios!**
+
 ## How it works
 
 When the image input is received, the app sends it to the local server where the model anaylzes it. The model uses K-Means clustering to take the average of the color values from the input, and returns 5 peak values in json array. The app then takes the array, parses it into strings, and generates an organized palette with it.
