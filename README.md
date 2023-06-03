@@ -32,9 +32,9 @@ We are also in the process of figuring out how to publish this app to Google Pla
 
 ## References and Resources
 
-[Flutter documentation](https://docs.flutter.dev/)
-[Flutter Tutorial For Beginners in 3 Hours](https://youtu.be/CD1Y2DmL5JM)
-[Flutter Tutorial — Image Picker From Camera & Gallery](https://medium.com/unitechie/flutter-tutorial-image-picker-from-camera-gallery-c27af5490b74)
+*[Flutter documentation](https://docs.flutter.dev/)
+*[Flutter Tutorial For Beginners in 3 Hours](https://youtu.be/CD1Y2DmL5JM)
+*[Flutter Tutorial — Image Picker From Camera & Gallery](https://medium.com/unitechie/flutter-tutorial-image-picker-from-camera-gallery-c27af5490b74)
 
 
 * App icon
