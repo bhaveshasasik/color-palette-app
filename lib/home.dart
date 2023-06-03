@@ -8,6 +8,7 @@ import 'package:camera_gallery_demo/splash.dart';
 import 'package:camera_gallery_demo/palette.dart';
 
 //home
+
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -69,7 +70,6 @@ class _HomePageState extends State<HomePage> {
                       "Pick Image from Gallery",
                       style: TextStyle(
                           color: Colors.white70, fontWeight: FontWeight.bold),
-
                     ),
                   ),
                 ),
@@ -160,6 +160,7 @@ class _HomePageState extends State<HomePage> {
       ),
     );
   }
+
   void _navigateToLoadingScreen() {
     Navigator.push(
       context,
