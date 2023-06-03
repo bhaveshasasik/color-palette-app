@@ -16,7 +16,7 @@ When the image input is received, the app sends it to the local server where the
 - [Color Palette Model](https://github.com/suyashgoel/color-palette-model)
 
 ## Installation/Prerequisites
-1. Make sure you have flutter downloaded. If not, check out [this page](https://docs.flutter.dev/get-started/install)
+1. Make sure you have flutter downloaded. If not, check out [this page].(https://docs.flutter.dev/get-started/install)
 2. Download our zip file and open it on Android Studio after unzipping it.
     - click **pub get** to update all the dependencies
 3. Connect your android device to your computer and select it as the platform to run the app on.
