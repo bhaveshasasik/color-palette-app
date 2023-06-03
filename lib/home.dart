@@ -8,7 +8,6 @@ import 'package:camera_gallery_demo/splash.dart';
 import 'package:camera_gallery_demo/palette.dart';
 
 //home
-
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
@@ -33,10 +32,11 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.grey.shade700,
+      backgroundColor: Colors.white,
       appBar: AppBar(
+        centerTitle: true,
         title: const Text(
-          "Color Palette Pro",
+          "",
         ),
         flexibleSpace: Container(
           decoration: BoxDecoration(
@@ -49,16 +49,55 @@ class _HomePageState extends State<HomePage> {
         ),
       ),
       body: Align(
-        alignment: Alignment.bottomCenter,
+        alignment: Alignment.center,
         child: Column(
-          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            Align(
+              alignment: Alignment.center,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: [
+                      ShaderMask(
+                        shaderCallback: (Rect bounds) {
+                          return LinearGradient(
+                            colors: [
+                              Colors.cyan.shade800,
+                              Colors.purple.shade800
+                            ],
+                          ).createShader(bounds);
+                        },
+                        child: Text(
+                          'ColorFlix',
+                          style: TextStyle(
+                            fontSize: 40.0,
+                            color: Colors.white,
+                            fontStyle: FontStyle.italic,
+                            fontWeight: FontWeight.bold,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(
+              width: double.infinity,
+              height: 25,
+            ),
             Row(
               crossAxisAlignment: CrossAxisAlignment.end,
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(
-                  height: 75,
+                  height: 50,
                   width: 175,
                   child: MaterialButton(
                     shape: RoundedRectangleBorder(
@@ -69,13 +108,16 @@ class _HomePageState extends State<HomePage> {
                     child: const Text(
                       "Pick Image from Gallery",
                       style: TextStyle(
-                          color: Colors.white70, fontWeight: FontWeight.bold),
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13,
+                          fontStyle: FontStyle.italic),
                     ),
                   ),
                 ),
                 const SizedBox(width: 25),
                 SizedBox(
-                  height: 75,
+                  height: 50,
                   width: 175,
                   child: MaterialButton(
                     shape: RoundedRectangleBorder(
@@ -86,15 +128,49 @@ class _HomePageState extends State<HomePage> {
                     child: const Text(
                       "Pick Image from Camera",
                       style: TextStyle(
-                          color: Colors.white70, fontWeight: FontWeight.bold),
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 13,
+                          fontStyle: FontStyle.italic),
                     ),
                   ),
                 ),
               ],
             ),
-            const SizedBox(
-              width: double.infinity,
-              height: 25,
+            Column(
+              //crossAxisAlignment: CrossAxisAlignment.end,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Row(
+                  //crossAxisAlignment: CrossAxisAlignment.end,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Align(
+                      child: Padding(
+                        padding: const EdgeInsets.only(top: 25.0),
+                        child: ShaderMask(
+                          shaderCallback: (Rect bounds) {
+                            return LinearGradient(
+                              colors: [
+                                Colors.cyan.shade800,
+                                Colors.purple.shade800
+                              ],
+                            ).createShader(bounds);
+                          },
+                          child: Text(
+                            'discover your perfect color palette!',
+                            style: TextStyle(
+                              fontSize: 20.0,
+                              color: Colors.white,
+                              fontStyle: FontStyle.italic,
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+              ],
             ),
           ],
         ),
