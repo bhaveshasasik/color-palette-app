@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 13,
+                          fontSize: 11,
                           fontStyle: FontStyle.italic),
                     ),
                   ),
@@ -126,11 +126,11 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.cyan.shade800,
                     onPressed: _pickImageFromCamera,
                     child: const Text(
-                      "Pick Image from Camera",
+                      "Take Image from Camera",
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 13,
+                          fontSize: 11,
                           fontStyle: FontStyle.italic),
                     ),
                   ),
