@@ -203,7 +203,7 @@ class _HomePageState extends State<HomePage> {
   Future<void> _processImage(File imageTemp) async {
     var request = http.MultipartRequest(
       'POST',
-      Uri.parse('https://fd0e-168-150-39-67.ngrok-free.app/upload'),
+      Uri.parse('https://1ccf-24-130-143-73.ngrok-free.app/upload'),
     );
     request.files.add(
       await http.MultipartFile.fromPath('image', imageTemp.path),
