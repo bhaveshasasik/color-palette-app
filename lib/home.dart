@@ -157,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                               ],
                             ).createShader(bounds);
                           },
-                          child: Text(
+                          child: const Text(
                             'discover your perfect color palette!',
                             style: TextStyle(
                               fontSize: 20.0,
