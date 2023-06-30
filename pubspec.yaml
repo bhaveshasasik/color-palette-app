@@ -38,6 +38,9 @@ dependencies:
   cupertino_icons: ^1.0.2
   image_picker: ^0.8.7+5
   http: ^0.13.6
+  screenshot: ^2.1.0
+  share_plus: ^7.0.2
+  path_provider: ^2.0.15
 
 dev_dependencies:
   flutter_test:
