@@ -106,11 +106,11 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.cyan.shade800,
                     onPressed: _pickImageFromGallery,
                     child: const Text(
-                      "Pick Image from Gallery",
+                      "Pick Image",
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 13,
+                          fontSize: 14,
                           fontStyle: FontStyle.italic),
                     ),
                   ),
@@ -126,11 +126,11 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.cyan.shade800,
                     onPressed: _pickImageFromCamera,
                     child: const Text(
-                      "Pick Image from Camera",
+                      "Pick Image",
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 13,
+                          fontSize: 14,
                           fontStyle: FontStyle.italic),
                     ),
                   ),
