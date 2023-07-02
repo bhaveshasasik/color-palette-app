@@ -110,7 +110,7 @@ class _HomePageState extends State<HomePage> {
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 14,
+                          fontSize: 13,
                           fontStyle: FontStyle.italic),
                     ),
                   ),
@@ -126,11 +126,11 @@ class _HomePageState extends State<HomePage> {
                     color: Colors.cyan.shade800,
                     onPressed: _pickImageFromCamera,
                     child: const Text(
-                      "Pick Image",
+                      "Take Image",
                       style: TextStyle(
                           color: Colors.white,
                           fontWeight: FontWeight.bold,
-                          fontSize: 14,
+                          fontSize: 13,
                           fontStyle: FontStyle.italic),
                     ),
                   ),
@@ -157,7 +157,7 @@ class _HomePageState extends State<HomePage> {
                               ],
                             ).createShader(bounds);
                           },
-                          child: Text(
+                          child: const Text(
                             'discover your perfect color palette!',
                             style: TextStyle(
                               fontSize: 20.0,
@@ -203,7 +203,7 @@ class _HomePageState extends State<HomePage> {
   Future<void> _processImage(File imageTemp) async {
     var request = http.MultipartRequest(
       'POST',
-      Uri.parse('https://fd0e-168-150-39-67.ngrok-free.app/upload'),
+      Uri.parse('https://1ccf-24-130-143-73.ngrok-free.app/upload'),
     );
     request.files.add(
       await http.MultipartFile.fromPath('image', imageTemp.path),
